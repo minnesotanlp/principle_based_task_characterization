@@ -256,27 +256,36 @@
     margin-left: 5vw;
     margin-right: 5vw;
     color: #363636;
-    }
+  }
 
-    .pulication_authors {
+  .pulication_authors {
     text-align: center;
     font-size: 1.125em;
-    }
+  }
 
-    .paper_title {
+  .paper_title {
     text-align: center;
     font-size: 1.5em;
     color: #363636;
-    }
+  }
 
-    .paper_detail {
+  .paper_detail {
     font-size: 1em;
     text-align: justify;
     margin-left: 20vw;
     margin-right: 20vw;
     color: #4a4a4a;
-    }
+  }
 
+  @media (max-width: 600px) {
+    .paper_detail {
+        font-size: 1em;
+        text-align: justify;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        color: #4a4a4a;
+    }
+  }
 
   .carousel {
     max-width: 100%;
