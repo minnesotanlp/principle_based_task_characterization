@@ -99,23 +99,23 @@
     <div class="paper_detail">
         <ul>
             <li>
-                <strong>Granularity</strong>: The level of abstraction or specificity at which evaluation principles are defined. 
-                It ranges from broad, high-level principles (coarse-grained), to domain-specific, task-specific, and finally, instance-specific principles that target individual data instances.
+                <strong style="color: #6495ED;">Granularity</strong>: The level of abstraction or specificity at which evaluation principles are defined. 
+                It ranges from broad, high-level principles (coarse-grained), to <span style="color: #7B9ED9;">domain-specific</span>, <span style="color: #7B9ED9;">task-specific</span>, and finally, <span style="color: #7B9ED9;">instance-specific</span> principles that target individual data instances.
             </li>
             <li>
-                <strong>Requirement Specificity</strong>: The degree of detail and concreteness in an evaluation principle, ranging from broad, general criteria (e.g., effective planning) to narrowly defined, specific requirements (e.g., cost-effective dining within constraints).
+                <strong style="color: #3CB371;">Requirement Specificity</strong>: The degree of <span style="color: #5CC88D;">detail</span> and <span style="color: #5CC88D;">concreteness</span> in an evaluation principle, ranging from broad, general criteria (e.g., effective planning) to <span style="color: #5CC88D;">narrowly defined</span>, <span style="color: #5CC88D;">specific requirements</span> (e.g., cost-effective dining within constraints).
             </li>
             <li>
-                <strong>Cognitive Load</strong>: The mental effort required to understand and apply a principle during evaluation, ranging from easy (directly inferable) to medium (requiring external tools) to difficult (requiring expert knowledge or deep reasoning).
+                <strong style="color: #DAA520;">Cognitive Load</strong>: The <span style="color: #E6BE5A;">mental effort</span> required to understand and apply a principle during evaluation, ranging from <span style="color: #E6BE5A;">easy</span> (directly inferable) to <span style="color: #E6BE5A;">medium</span> (requiring external tools) to <span style="color: #E6BE5A;">difficult</span> (requiring expert knowledge or deep reasoning).
             </li>
             <li>
-                <strong>Coverage</strong>: The scope at which evaluation principles are applied, distinguishing whether they assess characteristics within a single instance (within-instance) or across multiple instances (between-instance). Most principles in this study focus on within-instance evaluation.
+                <strong style="color: #FF8C00;">Coverage</strong>: The scope at which evaluation principles are applied, distinguishing whether they assess characteristics <span style="color: #FFA64D;">within a single instance</span> (within-instance) or <span style="color: #FFA64D;">across multiple instances</span> (between-instance). Most principles in this study focus on <span style="color: #FFA64D;">within-instance evaluation</span>.
             </li>
             <li>
-                <strong>Function</strong>: The intended use or role of principles in large language model applications, such as guiding model alignment, evaluating capabilities, generating training data, or improving prompting strategies.
+                <strong style="color: #F08080;">Function</strong>: The intended <span style="color: #F58C8C;">use</span> or <span style="color: #F58C8C;">role</span> of principles in large language model applications, such as guiding <span style="color: #F58C8C;">model alignment</span>, evaluating <span style="color: #F58C8C;">capabilities</span>, generating <span style="color: #F58C8C;">training data</span>, or improving <span style="color: #F58C8C;">prompting strategies</span>.
             </li>
             <li>
-                <strong>Source</strong>: The origin or method by which evaluation principles are derived. This can be top-down (based on theory or expert knowledge), task-driven (from the task's goals), or bottom-up (extracted from analyzing example instances).
+                <strong style="color: #BA55D3;">Source</strong>: The <span style="color: #CA77DE;">origin</span> or <span style="color: #CA77DE;">method</span> by which evaluation principles are derived. This can be <span style="color: #CA77DE;">top-down</span> (based on theory or expert knowledge), <span style="color: #CA77DE;">task-driven</span> (from the task's goals), or <span style="color: #CA77DE;">bottom-up</span> (extracted from analyzing example instances).
             </li>
         </ul>
     </div>
