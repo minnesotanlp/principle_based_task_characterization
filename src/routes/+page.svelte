@@ -96,6 +96,29 @@
         We propose a taxonomy of principles (Figure 1) to systematically describe the characteristics and roles of principles. 
         This taxonomy captures multiple dimensions along which principles can vary, such as their level of granularity, the cognitive effort they demand, their coverage across instances, their functional role, and their origin. 
     </div>
+    <div class="paper_detail">
+        <ul>
+            <li>
+                <strong>Granularity</strong>: The level of abstraction or specificity at which evaluation principles are defined. 
+                It ranges from broad, high-level principles (coarse-grained), to domain-specific, task-specific, and finally, instance-specific principles that target individual data instances.
+            </li>
+            <li>
+                <strong>Requirement Specificity</strong>: The degree of detail and concreteness in an evaluation principle, ranging from broad, general criteria (e.g., effective planning) to narrowly defined, specific requirements (e.g., cost-effective dining within constraints).
+            </li>
+            <li>
+                <strong>Cognitive Load</strong>: The mental effort required to understand and apply a principle during evaluation, ranging from easy (directly inferable) to medium (requiring external tools) to difficult (requiring expert knowledge or deep reasoning).
+            </li>
+            <li>
+                <strong>Coverage</strong>: The scope at which evaluation principles are applied, distinguishing whether they assess characteristics within a single instance (within-instance) or across multiple instances (between-instance). Most principles in this study focus on within-instance evaluation.
+            </li>
+            <li>
+                <strong>Function</strong>: The intended use or role of principles in large language model applications, such as guiding model alignment, evaluating capabilities, generating training data, or improving prompting strategies.
+            </li>
+            <li>
+                <strong>Source</strong>: The origin or method by which evaluation principles are derived. This can be top-down (based on theory or expert knowledge), task-driven (from the task's goals), or bottom-up (extracted from analyzing example instances).
+            </li>
+        </ul>
+    </div>
 </div>
 
 <div>
@@ -109,7 +132,7 @@
     <div class="paper_detail">
         <ul>
             <li>
-                Step 1: Principle Generation
+                <p style="font-size: 1.25em;">Step 1: Principle Generation</p>
                     <p>
                         <strong>Extracted principles</strong> = we prompt an LLM with an input, an output, criteria, and a rubric score of 5 from BiGGen Bench to extract principles, and then cluster similar principles and ask the LLM to choose a representative name and summary. 
                         On average, 13.1 principles are extracted per task, resulting in a total of 917.
@@ -119,7 +142,7 @@
                     </p>
             </li>
             <li>
-                Step 2: Instance Generation
+                <p style="font-size: 1.25em;">Step 2: Instance Generation</p>
             </li>
             <p>
                 <strong>With principles</strong> = we prompt the LLM with a specific principle and ask it to generate 10 instances that adhere to it. This results in a total of 20,970 instances.
@@ -131,7 +154,7 @@
                 In both settings, 10 example instances from BiGGen Bench are shown to guide format, not content.
             </p>
             <li>
-                Step 3: Model Inference and Evaluation
+                <p style="font-size: 1.25em;">Step 3: Model Inference and Evaluation</p>
             </li>
             <p>
                 We use GPT-4o to assess how well each generated response adheres to the given principles. 
