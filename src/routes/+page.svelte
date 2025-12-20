@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { base } from '$app/paths';
   import 'bulma-carousel/dist/css/bulma-carousel.min.css';
   import Papa from "papaparse";
   import Text from "../components/text.svelte"
@@ -31,7 +32,7 @@
 
     carousel = carousels[0];
 
-    const res = await fetch("/score.csv");
+    const res = await fetch(`${base}/score.csv`);
     const text = await res.text();
     const parsed = Papa.parse(text, {
       header: true,
