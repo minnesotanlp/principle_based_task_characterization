@@ -357,6 +357,7 @@
     <div class="paper_detail">
         <div class="filters">
             <div class="multi-select" bind:this={multiRef}>
+            <span>Model: </span>
             <button class="trigger" on:click={() => open = !open}>
                 {selectedModels.length
                 ? selectedModels.join(", ")
@@ -378,17 +379,21 @@
                 </div>
             {/if}
             </div>
-                <select bind:value={selectedTask} class="select-style">
-                    {#each tasks as t}
-                        <option value={t}>{t}</option>
-                    {/each}
-                </select>
-                <select bind:value={selectedPrinciple} class="select-style">
-                    {#each filteredPrinciples  as p}
-                        <option value={p}>{p}</option>
-                    {/each}
-                </select>
-            </div>
+        </div>
+        <div class="filters">
+            <span>Task: </span>
+            <select bind:value={selectedTask} class="select-style">
+                {#each tasks as t}
+                    <option value={t}>{t}</option>
+                {/each}
+            </select>
+            <span>Principle: </span>
+            <select bind:value={selectedPrinciple} class="select-style">
+                {#each filteredPrinciples  as p}
+                    <option value={p}>{p}</option>
+                {/each}
+            </select>
+        </div>
         <table>
                 <thead>
                     <tr>
@@ -477,9 +482,13 @@
 
   a:hover {
     color: #86cecb;
+    text-decoration: underline;
   }
 
   .multi-select {
+    display: flex;
+    gap: 8px;
+    align-items: center;
     position: relative;
     width: 200px;
   }
