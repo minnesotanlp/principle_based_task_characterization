@@ -19,6 +19,7 @@
 	},
 	"dependencies": {
 		"bulma": "^1.0.4",
-		"bulma-carousel": "^4.0.24"
+		"bulma-carousel": "^4.0.24",
+		"papaparse": "^5.5.3"
 	}
 }

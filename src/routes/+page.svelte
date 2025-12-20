@@ -1,8 +1,21 @@
 <script>
   import { onMount } from 'svelte';
   import 'bulma-carousel/dist/css/bulma-carousel.min.css';
+  import Papa from "papaparse";
+  import Text from "../components/text.svelte"
 
   let carousel;
+
+  let rows = [];
+  let selectedModels = [];
+  let selectedPrinciple = "";
+  let filteredPrinciples = [];
+  let selectedTask = "";
+  let models = [];
+  let principles = [];
+  let tasks = [];
+  let open = false;
+  let multiRef;
 
   onMount(async () => {
     const module = await import('bulma-carousel');
@@ -17,7 +30,76 @@
     });
 
     carousel = carousels[0];
+
+    const res = await fetch("/score.csv");
+    const text = await res.text();
+    const parsed = Papa.parse(text, {
+      header: true,
+      skipEmptyLines: true
+    });
+    rows = parsed.data;
+    models = [...new Set(
+        rows.map(r => {
+            const m = r.model.trim();
+            return m.charAt(0).toUpperCase() + m.slice(1);
+        })
+    )];
+    principles = [...new Set(rows.map(r => r.principle.trim()))];
+    tasks = [...new Set(rows.map(r => r.task.trim()))];
+    if (models.length) {
+        selectedModels = [models[0]];
+    }
+    if (tasks.length) {
+        selectedTask = tasks[0]
+    }
+    if (principles.length) {
+        selectedPrinciple = principles[0]
+    }
+    filteredPrinciples = selectedTask
+    ? [...new Set(rows.filter(r => r.task === selectedTask).map(r => r.principle))].filter(p => p)
+    : [];
+    if (filteredPrinciples.length) {
+        selectedPrinciple = filteredPrinciples[0]
+    }
   });
+
+  onMount(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  });
+
+  $: filteredRows = rows.filter(r => {
+    const modelName = r.model.trim();
+    if (selectedModels.length && !selectedModels.some(m => m.toLowerCase() === modelName.toLowerCase())) return false;
+    if (selectedPrinciple && r.principle !== selectedPrinciple) return false;
+    if (selectedTask && r.task !== selectedTask) return false;
+    return true;
+  });
+
+
+  $: filteredPrinciples = selectedTask
+    ? [...new Set(rows.filter(r => r.task === selectedTask).map(r => r.principle))].filter(p => p)
+    : [];
+
+  $: {
+    if (filteredPrinciples.length === 0) {
+      selectedPrinciple = "";
+    } else if (!filteredPrinciples.includes(selectedPrinciple)) {
+      selectedPrinciple = filteredPrinciples[0];
+    }
+  }
+
+  function toggle(m) {
+    selectedModels = selectedModels.includes(m)
+      ? selectedModels.filter(x => x !== m)
+      : [...selectedModels, m];
+  }
+
+  function handleClickOutside(event) {
+    if (multiRef && !multiRef.contains(event.target)) {
+      open = false;
+    }
+  }
 </script>
 
 <div>
@@ -266,6 +348,68 @@
         </ul>
     </div>
 </div>
+
+<div>
+    <h2 class="paper_title">
+        Data
+    </h2>
+    <div class="paper_detail">
+        <div class="filters">
+            <div class="multi-select" bind:this={multiRef}>
+            <button class="trigger" on:click={() => open = !open}>
+                {selectedModels.length
+                ? selectedModels.join(", ")
+                : "Select models"}
+                <span>▾</span>
+            </button>
+            {#if open}
+                <div class="panel">
+                {#each models as m}
+                    <label>
+                    <input
+                        type="checkbox"
+                        checked={selectedModels.includes(m)}
+                        on:change={() => toggle(m)}
+                    />
+                    {m}
+                    </label>
+                {/each}
+                </div>
+            {/if}
+            </div>
+                <select bind:value={selectedTask} class="select-style">
+                    {#each tasks as t}
+                        <option value={t}>{t}</option>
+                    {/each}
+                </select>
+                <select bind:value={selectedPrinciple} class="select-style">
+                    {#each filteredPrinciples  as p}
+                        <option value={p}>{p}</option>
+                    {/each}
+                </select>
+            </div>
+        <table>
+                <thead>
+                    <tr>
+                    <th>No</th>
+                    <th>Input</th>
+                    <th>Output</th>
+                    <th>LLM Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {#each filteredRows as row, i}
+                    <tr>
+                        <td>{i + 1}</td>
+                        <td><Text text={row.input} /></td>
+                        <td><Text text={row.output} /></td>
+                        <td>{row.score}</td>
+                    </tr>
+                    {/each}
+                </tbody>
+        </table>
+    </div>
+</div>
     
 <style>
   * {
@@ -324,6 +468,91 @@
     display: block;
     margin: 0 auto;
   }
+
+  a {
+    color: #137a7f;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #86cecb;
+  }
+
+  .multi-select {
+    position: relative;
+    width: 200px;
+  }
+
+  .trigger {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  margin-top: 2px;
+  padding: 4px 8px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+  .panel label {
+    display: flex;
+    gap: 6px;
+    padding: 4px;
+    font-size: 14px;
+  }
+
+  select {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+ }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 24px;
+  }
+
+  th, td {
+    border: 1px solid #eee;
+    padding: 8px;
+    text-align: center;
+  }
+  th {
+    background: #f5f5f5;
+  }
+  .filters {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+    }
+
+.select-style {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 </style>
 
 <svelte:head>
