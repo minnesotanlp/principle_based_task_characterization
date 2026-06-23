@@ -129,6 +129,11 @@
         Characterization of Tasks for Language Models
     </h1>
     <div
+        style="text-align: center; font-size: 1.5em; color:#4A4A4A; padding-top: 5px;"
+    >
+        <span> ACL 2026 EvalEval Workshop </span>
+    </div>
+    <div
         class="pulication_authors"
         style="padding-bottom: 15px; padding-top: 15px;"
     >
@@ -213,7 +218,7 @@
 </div>
 <div>
     <div
-        style="background-color: #f5f5f5; padding-top: 5px; padding-bottom: 15px; margin-bottom: 15px;"
+        style="background-color: #f5f5f5; color:#363636; padding-top: 5px; padding-bottom: 15px; margin-bottom: 15px;"
     >
         <h2 class="paper_title">Abstract</h2>
         <p class="paper_detail">
@@ -271,7 +276,7 @@
 </div>
 
 <div
-    style="background-color: #f5f5f5; padding-top: 5px; padding-bottom: 15px; margin-bottom: 15px; margin-top: 15px;"
+    style="background-color: #f5f5f5; color:#363636; padding-top: 5px; padding-bottom: 15px; margin-bottom: 15px; margin-top: 15px;"
 >
     <h2 class="paper_title">Principles of Taxonomy</h2>
     <div style="display: flex; justify-content: center">
@@ -453,7 +458,7 @@
 </div>
 
 <div
-    style="background-color: #f5f5f5; padding-top: 5px; padding-bottom: 30px; margin-bottom: 15px; margin-top: 15px;"
+    style="background-color: #f5f5f5; color:#363636; padding-top: 5px; padding-bottom: 30px; margin-bottom: 15px; margin-top: 15px;"
 >
     <h2 class="paper_title">Key Takeaways</h2>
     <div class="paper_detail">
