@@ -676,16 +676,16 @@
 <div style="text-align: center;">
     <div class="citation-box" style="text-align: center;">
         <pre id="citation">
-    @misc&#123;koo2023benchmarking,
-        title=&#123;Benchmarking Cognitive Biases in Large Language Models as Evaluators&#125;,
-        author=&#123;Ryan Koo and Minhwa Lee and Vipul Raheja and
-                Jong Inn Park and Zae Myung Kim and Dongyeop Kang&#125;,
-        year=&#123;2023&#125;,
-        eprint=&#123;2309.17012&#125;,
-        archivePrefix=&#123;arXiv&#125;,
-        primaryClass=&#123;cs.CL&#125;
-    &#125;
-    </pre>
+@inproceedings&#123;hayati-etal-2026-from,
+    title = "From Rubrics to Recipe: Principle-Centric Benchmark for Evaluating Large Language Models",
+    author = "Hayati, Shirley Anugrah and Wang, Ruizi and Kang, Dongyeop",
+    booktitle = "ACL 2026 Workshop on Evaluating Evaluations (EvalEval)",
+    month = jul,
+    year = "2026",
+    address = "San Diego, United States of America",
+    publisher = "Association for Computational Linguistics",
+&#125;
+</pre>
     </div>
 </div>
 
