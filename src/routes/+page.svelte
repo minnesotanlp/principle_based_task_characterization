@@ -672,6 +672,23 @@
     </div>
 </div>
 
+<h2 class="paper_title">Citation</h2>
+<div style="text-align: center;">
+    <div class="citation-box" style="text-align: center;">
+        <pre id="citation">
+    @misc&#123;koo2023benchmarking,
+        title=&#123;Benchmarking Cognitive Biases in Large Language Models as Evaluators&#125;,
+        author=&#123;Ryan Koo and Minhwa Lee and Vipul Raheja and
+                Jong Inn Park and Zae Myung Kim and Dongyeop Kang&#125;,
+        year=&#123;2023&#125;,
+        eprint=&#123;2309.17012&#125;,
+        archivePrefix=&#123;arXiv&#125;,
+        primaryClass=&#123;cs.CL&#125;
+    &#125;
+    </pre>
+    </div>
+</div>
+
 <svelte:head>
     <title>From Rubrics to Recipe</title>
 </svelte:head>
@@ -840,5 +857,19 @@
         display: flex;
         justify-content: center;
         margin-bottom: 1rem;
+    }
+
+    .citation-box {
+        display: inline-block;
+        justify-content: center;
+        background: #f5f5f5;
+        padding: 20px;
+        border-radius: 4px;
+        overflow-x: auto;
+        position: relative;
+    }
+
+    .citation-box pre {
+        text-align: left;
     }
 </style>

@@ -1,38 +1,28 @@
-# sv
+# principle_centric_benchmark
+Website for the ACL 2026 EvalEval Paper paper ["From Rubrics to Recipe: Principle-Centric Benchmark for Evaluating Large Language Models"](https://openreview.net/pdf?id=yQhhR9cKE1). Dataset and code can be found [here](https://github.com/minnesotanlp/principle_centric_benchmark).
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Data
+`static/score.csv` contains evaluation results for all benchmark instances.
 
-## Creating a project
+| Column      | Description                                                                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `score`     | Evaluation score assigned to the model output. Scores are on a scale of `0-5`, where higher values indicate better performance. |
+| `model`     | The evaluated model. Current models include `gemma`, `gpt`, `qwen3b`, `qwen7b`, and `qwen14b`.                                               |
+| `task`      | Task category associated with the example.                                                                                         |
+| `principle` | Human readable standards or requirements that shape the output.                                                                                                    |
+| `input`     | Input prompt provided to the model.                                                                                                          |
+| `output`    | Model-generated response.                                                                                         |
 
-If you're seeing this, you've probably already done this step. Congrats!
 
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+## Citation
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+@inproceedings{hayati-etal-2026-from,
+    title = "From Rubrics to Recipe: Principle-Centric Benchmark for Evaluating Large Language Models",
+    author = "Hayati, Shirley Anugrah and Wang, Ruizi and Kang, Dongyeop",
+    booktitle = "ACL 2026 Workshop on Evaluating Evaluations (EvalEval)",
+    month = jul,
+    year = "2026",
+    address = "San Diego, United States of America",
+    publisher = "Association for Computational Linguistics",
+}
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
