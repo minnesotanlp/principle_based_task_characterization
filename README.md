@@ -1,38 +1,42 @@
-# sv
+# Principle-Based Task Characterization
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A SvelteKit web application visualizing the taxonomy and benchmark results from the paper:
 
-## Creating a project
+> **"From Rubrics to Recipe: Principle-Centric Benchmark for Evaluating Large Language Models"**
+> Hayati et al., ACL 2026 EvalEval Workshop
 
-If you're seeing this, you've probably already done this step. Congrats!
+**Live Demo**: https://minnesotanlp.github.io/principle_based_task_characterization/
 
-```bash
-# create a new project in the current directory
-npx sv create
+## About
 
-# create a new project in my-app
-npx sv create my-app
-```
+This interactive site presents:
+- A taxonomy of task principles extracted from [BigGen](https://arxiv.org/abs/2406.05761) evaluation rubrics
+- Similarity and co-occurrence heatmaps across 52+ task types
+- Evaluation results comparing GPT, Qwen, and Gemma model families
+- Reasoning capability breakdown across principle categories
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
+## Development
 
 ```bash
-npm run build
+npm install
+npm run dev        # start dev server (http://localhost:5173)
+npm run build      # production build
+npm run preview    # preview production build
 ```
 
-You can preview the production build with `npm run preview`.
+## Deployment
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+The site auto-deploys to GitHub Pages via the workflow in `.github/workflows/deploy.yml` on every push to `main`.
+
+## Citation
+
+```bibtex
+@inproceedings{hayati-etal-2026-from,
+    title     = "From Rubrics to Recipe: Principle-Centric Benchmark for Evaluating Large Language Models",
+    author    = "Hayati, Shirley Anugrah and Wang, Ruizi and Kang, Dongyeop",
+    booktitle = "ACL 2026 Workshop on Evaluating Evaluations (EvalEval)",
+    year      = "2026",
+    address   = "San Diego, United States of America",
+    publisher = "Association for Computational Linguistics",
+}
+```
